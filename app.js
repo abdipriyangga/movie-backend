@@ -3,14 +3,13 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT;
 const mainRouter = require("./src/routes/index");
-const bodyParser = require("body-parser");
 
 app.get('/hello', (req, res) => {
   res.set('Content-Type', 'text/html');
   res.status(200).send("<h1>Hello GFG Learner!</h1>");
 });
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded());
 
 app.listen(PORT, (error) => {
   if (!error)
